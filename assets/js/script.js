@@ -11,6 +11,7 @@ $("form").submit(function(){
         event.preventDefault();
         userCity = $('#search').val();
         $('#search').val('');
+        $('.card-group').empty();
         getCityGeocooridnates(userCity);
       });
 
@@ -32,15 +33,18 @@ function createWeatherCards(forecast) {
     //used to get a unique value for each day as each day has up to 8 values.
     for (var i = 0; i < 5; i++) {
         var forecastedDate = forecast.list.find(d => dayjs.unix(d.dt).format('YYYY-MM-DD') === dayjs().add(i, 'day').format('YYYY-MM-DD'))
-        console.log(forecastedDate);
+        weatherIcon = getWeatherIcon(forecastedDate.weather[0].id);
+
         //create card elements
         var card = $('<div></div>').addClass('card');
         var cardImg = $('<img />', {
-            src: '',
-            alt: ''
+            src: "./assets/images/" + weatherIcon,
+            alt: forecastedDate.weather[0].main
         }).addClass('card-img-top');
         var cardBody = $('<div></div>').addClass('card-body');
-        var cardTitle = $('<h5></h5>').addClass('card-title').text(dayjs.unix(forecastedDate.dt).format('dddd MM/DD/YY'));
+        var forecastedDate = dayjs.unix(forecastedDate.dt).format('dddd MM/DD/YY')
+        var cardTitle = $('<h5></h5>').addClass('card-title').text(forecastedDate.split(" ")[0])
+        var cardTitleDate = $('<h5></h5>').text(forecastedDate.split(" ")[1]);
         var cardText = $('<p></p>').addClass('card-text');
         var cardFooter = $('<div></div>').addClass('card-footer');
         var cardFooterText = $('<small></small>').addClass('text-body-secondary');
@@ -49,9 +53,7 @@ function createWeatherCards(forecast) {
         cardGroup.append(card);
         card.append(cardImg, cardBody, cardFooter);
         cardBody.append(cardTitle, cardText);
+        cardTitle.append(cardTitleDate);
         cardFooter.append(cardFooterText);
     }
-
-    
-
 }

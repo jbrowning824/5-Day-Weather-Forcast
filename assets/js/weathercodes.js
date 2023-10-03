@@ -1,4 +1,4 @@
-var weatherCodes = {
+var weatherIcons = {
     200: 'thunder.svg',
     201: 'thunder.svg',
     202: 'thunder.svg',
@@ -45,9 +45,6 @@ var weatherCodes = {
     804: 'cloudy.svg',
 }
 
-
-
-function getWeatherImage(weatherCode) {
-    return 
-                        
+function getWeatherIcon(weatherCode) {
+    return weatherIcons[weatherCode];            
 }
