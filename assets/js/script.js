@@ -32,7 +32,7 @@ function createWeatherCards(forecast) {
     //used to get a unique value for each day as each day has up to 8 values.
     for (var i = 0; i < 5; i++) {
         var forecastedDate = forecast.list.find(d => dayjs.unix(d.dt).format('YYYY-MM-DD') === dayjs().add(i, 'day').format('YYYY-MM-DD'))
-        
+        console.log(forecastedDate);
         //create card elements
         var card = $('<div></div>').addClass('card');
         var cardImg = $('<img />', {

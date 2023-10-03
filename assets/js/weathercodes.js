@@ -1,0 +1,53 @@
+var weatherCodes = {
+    200: 'thunder.svg',
+    201: 'thunder.svg',
+    202: 'thunder.svg',
+    210: 'thunder.svg',
+    211: 'thunder.svg',
+    212: 'thunder.svg',
+    221: 'thunder.svg',
+    230: 'thunder.svg',
+    231: 'thunder.svg',
+    232: 'thunder.svg',
+    301: 'rainy-4.svg',
+    302: 'rainy-4.svg',
+    310: 'rainy-5.svg',
+    311: 'rainy-5.svg',
+    312: 'rainy-5.svg',
+    313: 'rainy-6.svg',
+    314: 'rainy-6.svg',
+    321: 'rainy-7.svg',
+    500: 'rainy-1.svg',
+    501: 'rainy-2.svg',
+    502: 'rainy-6.svg',
+    503: 'rainy-7.svg',
+    504: 'rainy-7.svg',
+    511: 'snowy-6.svg',
+    520: 'rainy-4.svg',
+    521: 'rainy-5.svg',
+    522: 'rainy-6.svg',
+    531: 'rainy-7.svg',
+    600: 'snowy-1.svg',
+    601: 'snowy-2.svg',
+    602: 'snowy-3.svg',
+    611: 'snowy-4.svg',
+    612: 'snowy-1.svg',
+    613: 'snowy-2.svg',
+    615: 'snowy-3.svg',
+    616: 'snowy-6.svg',
+    620: 'snowy-4.svg',
+    621: 'snowy-5.svg',
+    622: 'snowy-6.svg',
+    800: 'day.svg',
+    801: 'cloudy-day-1.svg',
+    802: 'cloudy-day-2.svg',
+    803: 'cloudy-day-3.svg',
+    804: 'cloudy.svg',
+}
+
+
+
+function getWeatherImage(weatherCode) {
+    return 
+                        
+}
