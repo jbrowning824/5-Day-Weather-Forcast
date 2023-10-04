@@ -32,28 +32,31 @@ function createWeatherCards(forecast) {
     var cardGroup = $('.card-group');
     //used to get a unique value for each day as each day has up to 8 values.
     for (var i = 0; i < 5; i++) {
-        var forecastedDate = forecast.list.find(d => dayjs.unix(d.dt).format('YYYY-MM-DD') === dayjs().add(i, 'day').format('YYYY-MM-DD'))
-        weatherIcon = getWeatherIcon(forecastedDate.weather[0].id);
+        var forecastedWeather = forecast.list.find(d => dayjs.unix(d.dt).format('YYYY-MM-DD') === dayjs().add(i, 'day').format('YYYY-MM-DD'));
+        var forecastedDate = dayjs.unix(forecastedWeather.dt).format('dddd MM/DD/YY');
+        weatherIcon = getWeatherIcon(forecastedWeather.weather[0].id);
+        console.log(forecastedWeather);
 
         //create card elements
         var card = $('<div></div>').addClass('card');
         var cardImg = $('<img />', {
             src: "./assets/images/" + weatherIcon,
-            alt: forecastedDate.weather[0].main
+            alt: forecastedWeather.weather[0].main
         }).addClass('card-img-top');
         var cardBody = $('<div></div>').addClass('card-body');
-        var forecastedDate = dayjs.unix(forecastedDate.dt).format('dddd MM/DD/YY')
+        
         var cardTitle = $('<h5></h5>').addClass('card-title').text(forecastedDate.split(" ")[0])
         var cardTitleDate = $('<h5></h5>').text(forecastedDate.split(" ")[1]);
-        var cardText = $('<p></p>').addClass('card-text');
-        var cardFooter = $('<div></div>').addClass('card-footer');
-        var cardFooterText = $('<small></small>').addClass('text-body-secondary');
+        var cardWeatherInfoList = $('<ul></ul>').addClass('card-text');
+        var cardTempListItem = $('<li></li>').addClass('weather-info').text(`Temp: ${forecastedWeather.main.temp}`);
+        var cardWindListItem = $('<li></li>').addClass('weather-info').text(`Wind: ${forecastedWeather.wind.speed} MPH`);
+        var cardHumidityListItem = $('<li></li>').addClass('weather-info').text(`Humidity: ${forecastedWeather.main.humidity}%`);
 
         //append the elements to the card and add to the card group 
         cardGroup.append(card);
-        card.append(cardImg, cardBody, cardFooter);
-        cardBody.append(cardTitle, cardText);
-        cardTitle.append(cardTitleDate);
-        cardFooter.append(cardFooterText);
+        card.append(cardImg, cardBody);
+        cardBody.append(cardTitle, cardWeatherInfoList);
+        cardTitle.append(cardTitleDate, "<hr>");
+        cardWeatherInfoList.append(cardTempListItem, cardWindListItem, cardHumidityListItem)
     }
 }

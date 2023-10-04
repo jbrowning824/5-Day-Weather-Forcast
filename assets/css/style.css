@@ -1,0 +1,19 @@
+
+.navbar{
+    background-color: #64b5f6;
+}
+p.navbar-brand{
+    font-size: 2.5rem;
+    color: white;
+}
+
+.main-content{
+    
+}
+
+ul{
+    list-style-type: none;
+}
+.card-text, ul{
+    padding-left: 0;
+}
