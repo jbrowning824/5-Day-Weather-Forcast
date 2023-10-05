@@ -1,4 +1,17 @@
 
+/* envirionment variables */
+:root{
+    --main-text-color: white;
+    --max-width: 100%;
+}
+
+/* default list options for city history and weather details in card */
+ul {
+    text-wrap: wrap;
+    list-style-type: none;
+}
+
+/* navbar layout */
 .navbar{
     display: flex;
     background-color: #64b5f6;
@@ -6,45 +19,45 @@
 }
 p.brand{
     font-size: 2.5rem;
-    color: white;
-    width: 100%;
+    color: var(--main-text-color);
+    width: var(--max-width);
     margin-right: 20%;
     text-align: end;
 }
 
-.main-content{
-    
-}
-
-button{
-    width: 100%;
-    font-size: 1.25rem;
-}
-ul{
-    text-wrap: wrap;
-    list-style-type: none;
-}
-
-.city-history{
-
+/* bootstrap card styling */
+.card-text,
+ul {
     padding-left: 0;
 }
-.city-history li{
-    background-color: #448aff;
-    border-radius: 3px;
-    margin-bottom: 5px;
-    text-align: center;
-    color: white;
-    font-size: 1.25rem;
-}
-.city-history li:hover {
-    background-color: #82b1ff;
-}
-.card-text, ul{
-    padding-left: 0;
-}
-
+/* keep text from displaying outside of card border */
 .card-body {
     overflow: hidden;
     white-space: nowrap;
 }
+
+/* styling for stored cities list */
+.city-history {
+    padding-left: 0;
+}
+
+.city-history li {
+    background-color: #448aff;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: var(--main-text-color);
+    font-size: 1.25rem;
+}
+
+.city-history li:hover {
+    background-color: #82b1ff;
+}
+/* search city button styling */
+button{
+    width: var(--max-width);
+    font-size: 1.25rem;
+}
+
+
+
