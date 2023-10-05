@@ -1,8 +1,8 @@
 //environment variables
 var userCity = "";
 var apikey = "6e2a33cd6f27746a05153a52516eb6b3";
-var weatherApiUrl = `http://api.openweathermap.org/data/2.5/forecast?appid=${apikey}&units=imperial`;
-var geocodingApiUrl = `http://api.openweathermap.org/geo/1.0/direct?appid=${apikey}`;
+var weatherApiUrl = `https://api.openweathermap.org/data/2.5/forecast?appid=${apikey}&units=imperial`;
+var geocodingApiUrl = `https://api.openweathermap.org/geo/1.0/direct?appid=${apikey}`;
 
 //main workflow on form submit
 //add unique city to local storage
